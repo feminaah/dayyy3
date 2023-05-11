@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calcu</title>
+</head>
+<style>
+    .container {
+        background-color: burlywood;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    input {
+        align-self: center;
+        background-color: rgb(197, 230, 154);
+        border: 6px solid rgb(15, 15, 15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+        border-bottom: 2px rgb(14, 13, 13);
+        padding: 20px;
+        border-radius: 5px;
+        margin: 50px;
+        text-align: center;
+    }
+
+
+    h1 {
+        color: rgb(241, 238, 238);
+        text-align:center;
+        font-size: 50px;
+        text-shadow: 20px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <h1>CALCULATOR</h1>
+        <input type="number" id="num1">
+
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+
+        <input type="number" id="num2">
+        <button onclick="calculate()">calculate</button>
+        <p id="result"></p>
+    </div>
+
+</body>
+
+<script>
+    function add(num1, num2) {
+        return num1 + num2;
+    }
+    function sub(num1, num2) {
+        return num1 - num2;
+    }
+    function multi(num1, num2) {
+        return num1 * num2;
+    }
+    function div(num1, num2) {
+        return num1 / num2;
+    }
+    function calculate() {
+
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        var operator = document.getElementById("operator").value;
+        var result;
+
+
+        switch (operator) {
+            case "+":
+                result = add(num1, num2);
+                break;
+            case "-":
+                result = sub(num1, num2);
+                break;
+            case "*":
+                result = multi(num1, num2);
+                break;
+            case "/":
+                result = div(num1, num2);
+                break;
+            default:
+                result = "invalid"
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+
+</html>
